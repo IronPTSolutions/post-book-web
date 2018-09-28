@@ -50,7 +50,7 @@ export class UserService extends BaseApiService {
       );
   }
 
-  onUSersChanges(): Observable<Array<User>> {
+  onUsersChanges(): Observable<Array<User>> {
     return this.usersSubject.asObservable();
   }
 

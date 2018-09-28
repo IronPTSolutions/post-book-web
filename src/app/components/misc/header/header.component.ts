@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   selector: 'app-header',
   templateUrl: './header.component.html'
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   user: User;
   onUserChanges: Subscription;
 
@@ -18,6 +18,10 @@ export class HeaderComponent implements OnInit {
     this.user = this.sessionService.user;
     this.onUserChanges = this.sessionService.onUserChanges()
       .subscribe((user: User) => this.user = user);
+  }
+
+  ngOnDestroy() {
+    this.onUserChanges.unsubscribe();
   }
 
   onClickLogout(): void {
