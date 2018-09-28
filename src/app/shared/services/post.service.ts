@@ -43,7 +43,12 @@ export class PostService extends BaseApiService {
   create(userId: string, post: Post): Observable < Post | ApiError > {
     return this.http.post<Post>(`${PostService.USER_API}/${userId}${PostService.POST_API}`, post.asFormData(), { withCredentials: true })
       .pipe(
-        map((post: Post) => Object.assign(new Post(), post)),
+        map((post: Post) => {
+          post = Object.assign(new Post(), post);
+          this.posts.push(post);
+          this.notifyPostsChanges();
+          return post;
+        }),
         catchError(this.handleError));
   }
 

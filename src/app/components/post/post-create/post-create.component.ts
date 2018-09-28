@@ -22,7 +22,6 @@ export class PostCreateComponent implements OnInit {
   }
 
   onSubmitCreatePostForm(post: Post): void {
-    console.log('aaa:', post);
     this.postService.create(this.userId, post)
       .subscribe((post: Post) => {
         this.postFormComponent.reset();

@@ -1,0 +1,9 @@
+<h1>{{ post.name }}</h1>
+<p><small>{{ post.createdAt | date:'yyyy-MM-dd' }}</small></p>
+<p>{{ post.content }}</p>
+
+<div class="card-columns">
+  <div class="card" *ngFor="let image of post.images" >
+    <img class="card-img-top" [src]="image" alt="Card image cap">
+  </div>
+</div>

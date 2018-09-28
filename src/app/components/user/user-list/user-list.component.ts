@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
 export class UserListComponent implements OnInit, OnDestroy {
   users: Array<User> = [];
   onUsersChangesSubscription: Subscription;
+  finderPattern: string;
 
   constructor(private userService: UserService) { }
 
@@ -26,6 +27,10 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.onUsersChangesSubscription.unsubscribe();
+  }
+
+  onPatternChange(pattern: string) {
+    this.finderPattern = pattern;
   }
 
 }
