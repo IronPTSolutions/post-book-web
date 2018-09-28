@@ -23,7 +23,6 @@ export class UserItemComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.authUser = this.sessionService.user;
-    console.log(this.authUser);
     this.onAuthUserChanges = this.sessionService.onUserChanges()
       .subscribe((user: User) => this.authUser = user);
   }

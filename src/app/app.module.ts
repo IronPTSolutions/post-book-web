@@ -11,6 +11,10 @@ import { LoginComponent } from './components/misc/login/login.component';
 import { RegisterComponent } from './components/misc/register/register.component';
 import { UserListComponent } from './components/user/user-list/user-list.component';
 import { UserItemComponent } from './components/user/user-item/user-item.component';
+import { PostListComponent } from './components/post/post-list/post-list.component';
+import { PostItemComponent } from './components/post/post-item/post-item.component';
+import { PostFormComponent } from './components/post/post-form/post-form.component';
+import { PostCreateComponent } from './components/post/post-create/post-create.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { UserItemComponent } from './components/user/user-item/user-item.compone
     LoginComponent,
     RegisterComponent,
     UserListComponent,
-    UserItemComponent
+    UserItemComponent,
+    PostListComponent,
+    PostItemComponent,
+    PostFormComponent,
+    PostCreateComponent
   ],
   imports: [
     BrowserModule,
