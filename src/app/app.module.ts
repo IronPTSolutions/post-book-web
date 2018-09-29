@@ -18,6 +18,7 @@ import { PostCreateComponent } from './components/post/post-create/post-create.c
 import { PostDetailsComponent } from './components/post/post-details/post-details.component';
 import { UserFilterPipe } from './shared/pipes/user-filter.pipe';
 import { UserFinderComponent } from './components/user/user-finder/user-finder.component';
+import { IntroPipe } from './shared/pipes/intro.pipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { UserFinderComponent } from './components/user/user-finder/user-finder.c
     PostCreateComponent,
     PostDetailsComponent,
     UserFilterPipe,
-    UserFinderComponent
+    UserFinderComponent,
+    IntroPipe
   ],
   imports: [
     BrowserModule,
