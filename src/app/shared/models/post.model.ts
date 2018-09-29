@@ -6,7 +6,7 @@ export class Post {
   content: string;
   images: Array<string> = [];
   tags: Array<string> = [];
-  user?: string | User = new User();
+  user?: User = new User();
   createdAt?: Date;
   imageFiles: Array<File> = [];
 

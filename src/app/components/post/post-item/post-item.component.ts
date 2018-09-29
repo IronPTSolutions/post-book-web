@@ -34,8 +34,8 @@ export class PostItemComponent implements OnInit, OnDestroy {
   }
 
   onClickDeletePost() {
-    if (this.authUser.id === this.post.user) {
-      this.postService.delete(this.post.user, this.post.id)
+    if (this.authUser.id === this.post.user.toString()) {
+      this.postService.delete(this.post.user.toString(), this.post.id)
         .subscribe(() => {});
     }
   }
