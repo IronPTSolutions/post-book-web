@@ -1,6 +1,7 @@
+import { PostCreateComponent } from './../post-create/post-create.component';
 import { PostService } from './../../../shared/services/post.service';
 import { Post } from './../../../shared/models/post.model';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
@@ -13,6 +14,7 @@ import { map, switchMap } from 'rxjs/operators';
 export class PostListComponent implements OnInit, OnDestroy {
   posts: Array<Post> = [];
   onPostsChangesSubscription: Subscription;
+  @ViewChild(PostCreateComponent) postCreateComponent: PostCreateComponent;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,4 +33,9 @@ export class PostListComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.onPostsChangesSubscription.unsubscribe();
   }
+
+  canDeactivate(): boolean {
+    return this.postCreateComponent.canDeactivate();
+  }
+
 }

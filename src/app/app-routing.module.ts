@@ -1,3 +1,4 @@
+import { CanLeavePostCreateGuard } from './shared/guards/can-leave-post-create.guard';
 import { PostDetailsComponent } from './components/post/post-details/post-details.component';
 import { PostListComponent } from './components/post/post-list/post-list.component';
 import { UserListComponent } from './components/user/user-list/user-list.component';
@@ -13,7 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'users',  canActivate: [IsAuthenticatedGuard], component: UserListComponent },
-  { path: 'users/:userId/posts',  canActivate: [IsAuthenticatedGuard], component: PostListComponent },
+  { path: 'users/:userId/posts',  canActivate: [IsAuthenticatedGuard], canDeactivate:[CanLeavePostCreateGuard], component: PostListComponent },
   { path: 'users/:userId/posts/:id',  canActivate: [IsAuthenticatedGuard], resolve: { post: PostResolverGuard }, component: PostDetailsComponent }
 ];
 
